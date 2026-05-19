@@ -9,7 +9,7 @@ from app.jobs import create_job, ensure_dirs, load_job, run_job
 from app.print_math import PrintTarget, dpi_for_print
 
 
-app = FastAPI(title="Print Upscaler", version="0.1.0")
+app = FastAPI(title="Kulli Willi Kalite Yükseltici", version="0.1.0")
 
 
 @app.on_event("startup")
@@ -77,7 +77,7 @@ def download(job_id: str) -> FileResponse:
     job = load_job(job_id)
     if job is None or job.status != "done" or job.output_path is None:
         raise HTTPException(status_code=404, detail="Output not available.")
-    return FileResponse(job.output_path, filename=f"print-upscaled-{job_id}.png", media_type="image/png")
+    return FileResponse(job.output_path, filename=f"kulli-willi-{job_id}.png", media_type="image/png")
 
 
 @app.get("/api/dpi-check")
@@ -86,4 +86,3 @@ def dpi_check(width_px: int, height_px: int, width_cm: float = 50, height_cm: fl
 
 
 app.mount("/", StaticFiles(directory=STATIC_DIR, html=True), name="static")
-

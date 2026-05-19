@@ -1,4 +1,4 @@
-# Print Upscaler
+# Kulli Willi Kalite Yükseltici
 
 Local web app for turning low-resolution images into print-sized outputs.
 
