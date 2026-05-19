@@ -6,6 +6,12 @@ $ZipPath = "tools\realesrgan-windows.zip"
 
 New-Item -ItemType Directory -Force -Path "tools", $ToolsDir | Out-Null
 
+$ExistingExe = "$ToolsDir\realesrgan-ncnn-vulkan.exe"
+if (Test-Path $ExistingExe) {
+  Write-Host "Engine already installed at $ExistingExe"
+  exit 0
+}
+
 Write-Host "Downloading Real-ESRGAN ncnn Vulkan engine..."
 Invoke-WebRequest -Uri $EngineUrl -OutFile $ZipPath
 

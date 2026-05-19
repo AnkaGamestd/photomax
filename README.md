@@ -12,7 +12,14 @@ The app is intentionally local-first:
 ## Quick Start
 
 ```powershell
+.\start_photomax.bat
+```
+
+Manual start:
+
+```powershell
 .\scripts\setup.ps1
+.\scripts\install_engine.ps1
 .\scripts\run.ps1
 ```
 
@@ -21,6 +28,8 @@ Open:
 ```text
 http://127.0.0.1:8000
 ```
+
+For a clean Windows install on another PC, see [INSTALL.md](INSTALL.md).
 
 ## Real-ESRGAN Engine
 
@@ -51,4 +60,3 @@ Approximate pixel targets:
 | 50 x 70 cm | 2953 x 4134 | 3937 x 5512 | 4724 x 6614 | 5906 x 8268 |
 
 For large wall prints, 200 DPI is often practical. Use 240-300 DPI when the print will be inspected closely.
-
