@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+data/uploads/
+data/outputs/
+data/jobs/
+data/test_input.png
+tools/realesrgan/
+.env

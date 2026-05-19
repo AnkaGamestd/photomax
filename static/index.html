@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Print Upscaler</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Local AI print tool</p>
+            <h1>Print Upscaler</h1>
+          </div>
+          <div class="engine" id="engineStatus">Checking engine</div>
+        </header>
+
+        <form class="panel" id="uploadForm">
+          <label class="dropzone" for="imageInput">
+            <input id="imageInput" name="image" type="file" accept="image/png,image/jpeg,image/webp" required />
+            <span class="drop-title">Görsel seç</span>
+            <span class="drop-subtitle">JPG, PNG veya WEBP</span>
+            <img id="preview" alt="" />
+          </label>
+
+          <div class="controls">
+            <label>
+              Baskı ölçüsü
+              <select id="sizePreset">
+                <option value="50x70" selected>50 x 70 cm</option>
+                <option value="40x60">40 x 60 cm</option>
+                <option value="30x40">30 x 40 cm</option>
+                <option value="custom">Özel</option>
+              </select>
+            </label>
+
+            <div class="grid-2">
+              <label>
+                Genişlik cm
+                <input id="widthCm" type="number" min="1" step="0.1" value="50" />
+              </label>
+              <label>
+                Yükseklik cm
+                <input id="heightCm" type="number" min="1" step="0.1" value="70" />
+              </label>
+            </div>
+
+            <label>
+              Baskı kalitesi
+              <select id="dpi">
+                <option value="150">150 DPI hızlı kontrol</option>
+                <option value="200" selected>200 DPI pratik baskı</option>
+                <option value="240">240 DPI yüksek</option>
+                <option value="300">300 DPI çok yüksek</option>
+              </select>
+            </label>
+
+            <label>
+              Model
+              <select id="model">
+                <option value="realesrgan-x4plus" selected>Fotoğraf: realesrgan-x4plus</option>
+                <option value="realesrgan-x4plus-anime">Çizim/anime: x4plus-anime</option>
+              </select>
+            </label>
+
+            <div class="target" id="targetInfo">Hedef piksel hesaplanıyor</div>
+            <button type="submit">Yükselt</button>
+          </div>
+        </form>
+
+        <section class="result" id="result">
+          <div class="status" id="jobStatus">Hazır</div>
+          <a class="download hidden" id="downloadLink" href="#">PNG indir</a>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
+
